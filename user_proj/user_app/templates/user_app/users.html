@@ -1,19 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>List of active users</h1>
+    <h1>{{ users_title }}</h1>
+
+    <ol>
+        {% for u in all_users %}
+        <li>User Info
+            <div>
+                <ul>
+                    <li>First Name: {{ u.first_name }}</li>
+                    <li>Last Name: {{ u.last_name }}</li>
+                    <li>Email: {{ u.email }}</li>
+                </ul>
+                <br>
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+
+    <!--
     <table>
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Id</th>
+            <th>Name</th>
             <th>Email</th>
         </tr>
         {% for u in all_users %}
         <tr>
-            <td>{{ u.first_name }}</td>
-            <td>{{ u.last_name }}</td>
+            <td>{{ u.pk }}</td>
+            <td>{{ u.first_name }} {{ u.last_name }}</td>
             <td>{{ u.email }}</td>
         </tr>
         {% endfor %}
-    </table>    
+    </table>
+    -->    
+
 {% endblock %}

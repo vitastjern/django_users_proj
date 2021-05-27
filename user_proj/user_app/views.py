@@ -10,7 +10,6 @@ def index(request):
 
 
 def users(request):
-    all_users = {'all_users': User.objects.all()}
-    print(all_users)
+    all_users = {'users_title': "List of all users",'all_users': User.objects.all().order_by('last_name')}
     return render(request, 'user_app/users.html', context = all_users)
    
