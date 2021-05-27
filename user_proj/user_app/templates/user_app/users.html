@@ -1,38 +1,44 @@
 {% extends "base.html" %}
 
+{% block title %}
+Django listing users
+{% endblock %}
+
 {% block content %}
-    <h1>{{ users_title }}</h1>
+<div class="jumbotron">
+    <div class="container">
+        <h1>{{ users_title }}</h1>
+        <ol>
+            {% for u in all_users %}
+            <li>User Info
+                <div>
+                    <ul>
+                        <li>First Name: {{ u.first_name }}</li>
+                        <li>Last Name: {{ u.last_name }}</li>
+                        <li>Email: {{ u.email }}</li>
+                    </ul>
+                    <br>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
 
-    <ol>
-        {% for u in all_users %}
-        <li>User Info
-            <div>
-                <ul>
-                    <li>First Name: {{ u.first_name }}</li>
-                    <li>Last Name: {{ u.last_name }}</li>
-                    <li>Email: {{ u.email }}</li>
-                </ul>
-                <br>
-            </div>
-        </li>
-        {% endfor %}
-    </ol>
-
-    <!--
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-        </tr>
-        {% for u in all_users %}
-        <tr>
-            <td>{{ u.pk }}</td>
-            <td>{{ u.first_name }} {{ u.last_name }}</td>
-            <td>{{ u.email }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    -->    
-
+        <!--
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            {% for u in all_users %}
+            <tr>
+                <td>{{ u.pk }}</td>
+                <td>{{ u.first_name }} {{ u.last_name }}</td>
+                <td>{{ u.email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        -->    
+    </div>
+</div>
 {% endblock %}
